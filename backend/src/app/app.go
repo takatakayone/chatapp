@@ -1,16 +1,10 @@
 package app
 
-import "github.com/gin-gonic/gin"
-
-var (
-	router = gin.Default()
-)
+import "net/http"
 
 func StartApplication() {
 
 	urlMappings()
 
-	if err := router.Run(":8080"); err != nil{
-		panic(err)
-	}
+	http.ListenAndServe(":8080", nil)
 }
